@@ -1,0 +1,96 @@
+@import 'variaveis';
+@import 'mixins';
+
+.container {
+  max-width: $max-width-container;
+  width: 100%;
+  margin: 0 auto;
+  padding: $container-padding;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+header {
+  background-color: $primary-color;
+  position: sticky;
+  top: 0;
+  left: 0;
+  @include flex-container(space-between, center);
+
+  .menu {
+    @include flex-container;
+    
+    li {
+      font-weight: bold;
+      margin-left: 24px;
+
+      a {
+        color: $text-color;
+      }
+    }
+  }
+}
+
+section {
+  padding: 56px 0;
+}
+
+.products {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 32.66%);
+  column-gap: $column-gap;
+  row-gap: $row-gap;
+  width: 100%;
+
+  .product-item {
+    img {
+      width: 100%;
+      border-radius: $product-border-radius;
+    }
+
+    .product-button {
+      display: block;
+      background-color: $button-bg-color;
+      color: $text-color;
+      text-align: center;
+      padding: 8px 0;
+      @include rounded-button;
+      margin-top: 8px;
+      text-decoration: none;
+
+      &:hover {
+        background-color: $button-hover-bg-color;
+      }
+    }
+  }
+}
+
+// Reponsividade
+// Tablets
+@media screen and (max-width: 1023px) { 
+  .container {
+    max-width: $max-width-container-responsive;
+  }
+
+  .products {
+    grid-template-columns: repeat(2, 48.5%);
+    column-gap: 3%;
+  }
+}
+
+// Celulares
+@media screen and (max-width: 767px) { 
+  .products {
+    grid-template-columns: 1fr;
+    display: block;
+
+    .product-item {
+      margin-bottom: $product-item-margin-bottom;
+    }
+  }
+}

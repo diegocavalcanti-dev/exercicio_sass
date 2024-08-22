@@ -1,0 +1,14 @@
+// source/sass/_mixins.scss
+
+// Mixin para criar um flex container
+@mixin flex-container($justify: center, $align: center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+  }
+  
+  // Mixin para criar um botão com bordas arredondadas
+  @mixin rounded-button($radius: $border-radius) {
+    border-radius: $radius;
+  }
+  
